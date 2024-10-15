@@ -1,4 +1,5 @@
 .venv/
 MNIST/
 *2024*
-*pycache*
+__pycache__/
+
