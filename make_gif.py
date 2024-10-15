@@ -1,9 +1,12 @@
 import imageio
 import os
+from natsort import natsorted  # Импортируем natsorted
 
+output_dir = "SIN-GAN-EVO_2024-10-15_19-54-00"
+image_files = [f for f in os.listdir(output_dir) if f.endswith('.png')]
 
-output_dir = "MNIST-GAN-EVO_2024-10-15_18-54-29"
-image_files = sorted([f for f in os.listdir(output_dir) if f.endswith('.png')])
+# Используем natsorted для сортировки файлов
+image_files = natsorted(image_files)
 
 images = []
 for image_file in image_files:
@@ -11,4 +14,4 @@ for image_file in image_files:
     image = imageio.imread(image_path)
     images.append(image)
 
-imageio.mimsave('training_evolution.gif', images, fps=10)
+imageio.mimsave('new_sinus_training_evolution.gif', images, fps=10)
