@@ -9,4 +9,4 @@
 ![alt text](generated_MNIST.png)
 
 ## generated MNIST evolution:
-![alt text](training_evolution.gif)
+![alt text](MNIST_training_evolution.gif)
