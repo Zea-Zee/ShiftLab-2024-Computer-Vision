@@ -1,3 +1,6 @@
+import os
+
+
 texts = [
     'Sunny day',
     'Starry night',
@@ -104,3 +107,15 @@ texts = [
     'Inspiring stories',
     'Warm embraces',
 ]
+
+
+def get_fonts_paths(dir='fonts'):
+    font_paths = []
+    for root, _, files in os.walk(dir):
+        for file in files:
+            if file.endswith('.ttf'):
+                font_paths.append(os.path.join(root, file))
+    return font_paths
+
+
+custom_fonts_paths = get_fonts_paths()
