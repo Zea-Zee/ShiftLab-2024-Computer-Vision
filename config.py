@@ -1,112 +1,19 @@
+import random
+
 import os
+import nltk
 
 
-texts = [
-    'Sunny day',
-    'Starry night',
-    'Cozy blanket',
-    'Gentle breeze',
-    'Fresh flowers',
-    'Warm coffee',
-    'Golden sunset',
-    'Sweet dreams',
-    'Misty morning',
-    'Silent whispers',
-    'Peaceful lake',
-    'Sandy beach',
-    'Colorful leaves',
-    'Rolling hills',
-    'Quiet forest',
-    'Bright stars',
-    'Charming village',
-    'Crisp air',
-    'Soft pillows',
-    'Lovely garden',
-    'Joyful moments',
-    'Vibrant colors',
-    'Chilly evening',
-    'Raindrop sounds',
-    'Starlit sky',
-    'Hidden treasures',
-    'Gentle waves',
-    'Summer picnic',
-    'Autumn harvest',
-    'Sweet melodies',
-    'Winding paths',
-    'Rustling leaves',
-    'Cool shade',
-    'Tasty treats',
-    'Endless horizons',
-    'Colorful birds',
-    'Twinkling lights',
-    'Adventurous spirit',
-    'Cuddly pets',
-    'Lively markets',
-    'Dreamy landscapes',
-    'Stunning views',
-    'Joyful laughter',
-    'Crisp morning',
-    'Bright blossoms',
-    'Hidden gems',
-    'Serene moments',
-    'Beautiful art',
-    'Wandering thoughts',
-    'Breezy afternoons',
-    'Luminous fireflies',
-    'Dancing flames',
-    'Scented candles',
-    'Glistening snow',
-    'Dewy grass',
-    'Warming sun',
-    'Energizing workouts',
-    'Charming towns',
-    'Playful puppies',
-    'Tranquil rivers',
-    'Historic buildings',
-    'Dreamy clouds',
-    'Charming cafés',
-    'Sparking conversations',
-    'Charming melodies',
-    'Radiant smiles',
-    'Rising tides',
-    'Bubbling brooks',
-    'Refreshing drinks',
-    'Swaying trees',
-    'Sizzling sunsets',
-    'Vast oceans',
-    'Frolicking kids',
-    'Friendly faces',
-    'Winding rivers',
-    'Soothing music',
-    'Creative minds',
-    'Diverse cultures',
-    'Exciting adventures',
-    'Vibrant festivals',
-    'Glistening raindrops',
-    'Wonderful surprises',
-    'Crispy autumn leaves',
-    'Charming landscapes',
-    'Enchanting gardens',
-    'Dancing shadows',
-    'Radiant flowers',
-    'Mellow vibes',
-    'Charming anecdotes',
-    'Relaxing spas',
-    'Adventurous trails',
-    'Vibrant artworks',
-    'Lush greenery',
-    'Ethereal beauty',
-    'Whispering winds',
-    'Gentle caress',
-    'Magical moments',
-    'Colorful sunsets',
-    'Peaceful retreats',
-    'Delightful surprises',
-    'Radiant sunshine',
-    'Enchanting melodies',
-    'Inspiring stories',
-    'Warm embraces',
-]
+def get_texts(n=1000):
+    nltk.download('words')
+
+    word_list = nltk.corpus.words.words()
+    preprocessed_words = [word for word in word_list if 4 <= len(word) <= 12]
+    preprocessed_words = [word for word in word_list if 4 <= len(word) <= 12]
+
+    sampled_words = random.sample(preprocessed_words, n * 10)
+    words = [word.lower() if random.randint(0, 5) else word.upper() for word in sampled_words]
+    return words[:n]
 
 
 def get_fonts_paths(dir='fonts'):
@@ -118,4 +25,6 @@ def get_fonts_paths(dir='fonts'):
     return font_paths
 
 
-custom_fonts_paths = get_fonts_paths()
+fonts_paths = get_fonts_paths()
+texts = get_texts()
+# print(get_words())
